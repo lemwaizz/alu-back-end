@@ -48,4 +48,4 @@ if __name__ == "__main__":
     for todo in resp2:
         if todo["completed"]:
             title = resp2[int(user_id)-1].get("title")
-            print("	{}".format(title))
+            print("	 {}".format(title))
