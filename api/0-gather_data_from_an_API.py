@@ -1,15 +1,25 @@
 #!/usr/bin/python3
-"""Retrieving data using apis"""
+"""
+Retrieving data using apis
+"""
 
+"""importing the right modules"""
 import requests 
 import sys
 
+"""passing id as the second argument."""
 user_id = sys.argv[1]
 url1= "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
+
+"""retrieve the data as json using requests method."""
 resp1 = requests.get(url1, verify= False).json()
+
+"""get the value of the name key"""
 name = resp1.get("name")
 url2= "https://jsonplaceholder.typicode.com/users/{}/todos".format(user_id)
 resp2 = requests.get(url2, verify= False).json()
+
+"""initialize count for completed tasks."""
 count = 0
 for todo in resp2:
 	if todo["completed"]:
