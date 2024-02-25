@@ -36,16 +36,15 @@ count = 0
 for todo in resp2:
     if todo["completed"]:
         count += 1
-        total_tasks = len(resp2)
+        total = len(resp2)
 """
    print all outputs
 """
-print("Employee {} is done with tasks({}/{}):"
-	.format(name, count, total_tasks))
+print("Employee {} is done with tasks({}/{}):".format(name, count, total))
 """
    loop through resp2 again finding the title and print it
 """
 for todo in resp2:
-	if todo["completed"]:
-		title = resp2[int(user_id)-1].get("title")
-		print("	{}".format(title))
+    if todo["completed"]:
+        title = resp2[int(user_id)-1].get("title")
+        print("	{}".format(title))
