@@ -11,22 +11,21 @@ import sys
    passing id as the second argument.
 """
 user_id = sys.argv[1]
-url1= "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
+url1 = "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
 
 """
    retrieve the data as json using requests method.
 """
-resp1 = requests.get(url1, verify= False).json()
-
+resp1 = requests.get(url1, verify=False).json()
 """
    get the value of the name key
 """
 name = resp1.get("name")
-url2= "https://jsonplaceholder.typicode.com/users/{}/todos".format(user_id)
+url2 = "https://jsonplaceholder.typicode.com/users/{}/todos".format(user_id)
 """
    convert to json.
 """
-resp2 = requests.get(url2, verify= False).json()
+resp2 = requests.get(url2, verify=False).json()
 """
    initialize count for completed tasks.
 """
@@ -35,13 +34,14 @@ count = 0
    loop through the resp2 json while increasing count of completed tasks.
 """
 for todo in resp2:
-	if todo["completed"]:
-		count += 1
-		total_tasks = len(resp2)
+    if todo["completed"]:
+        count += 1
+        total_tasks = len(resp2)
 """
    print all outputs
 """
-print("Employee {} is done with tasks({}/{}):".format(name, count, total_tasks))
+print("Employee {} is done with tasks({}/{}):"
+	.format(name, count, total_tasks))
 """
    loop through resp2 again finding the title and print it
 """
