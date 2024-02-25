@@ -23,14 +23,16 @@ get the value of the name key
 """
 name = resp1.get("name")
 url2= "https://jsonplaceholder.typicode.com/users/{}/todos".format(user_id)
+"""
+convert to json.
+"""
 resp2 = requests.get(url2, verify= False).json()
-
 """
 initialize count for completed tasks.
 """
 count = 0
 """
-loop through the resp2 json
+loop through the resp2 json while increasing count of completed tasks.
 """
 for todo in resp2:
 	if todo["completed"]:
