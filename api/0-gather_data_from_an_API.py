@@ -1,13 +1,10 @@
 #!/usr/bin/python3
 """
-Retrieving data using apis
+    python script that returns TODO list progress for a given employee ID
 """
-"""
-importing the right modules
-"""
-import requests 
+import json 
+import requests
 import sys
-import json
 
 
 """
